@@ -72,8 +72,6 @@ clear_screen()
 Write a program that prints your Python version and platform using the sys and platform modules.
 '''
 # enter your code here
-
-
 import sys
 import platform
 
@@ -136,9 +134,7 @@ Lowercase: i love mars
 Capitalized: I love mars
 Split into words: ['i', 'love', 'mars']
 '''
-#7
-
-Calculate the result of the following without parentheses and then with parentheses:
+#7Calculate the result of the following without parentheses and then with parentheses:
 10 + 2 * 5 / 2 - 3 ** 2
 
 # enter your code here
