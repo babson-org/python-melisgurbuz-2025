@@ -1,112 +1,203 @@
 
 from classes.week00.second_class.utils import clear_screen
+
 '''
 #13 - Conditional Logic
-Ask the user for a number and print whether it is positive, negative, or zero.
+Prompt the user for a number and display whether it’s positive, negative, or zero.
 '''
-# enter code here
+value = int(input("Type a number: "))
+if value > 0:
+    print("The number is positive")
+elif value < 0:
+    print("The number is negative")
+else:
+    print("The number is zero")
 
-
-
-pause=input('pause')
+pause = input('pause')
 clear_screen()
+'''
+Type a number: 2
+The number is positive
+'''
+
 
 '''
 #14 - Even/Odd Check
-Ask the user for a number and print if it is even or odd.
+Ask the user for a number and show if it is even or odd.
 '''
-# enter code here
+number = int(input("Enter any integer: "))
+if number % 2 == 0:
+    print("This number is even")
+else:
+    print("This number is odd")
 
-
-
-pause=input('pause')
+pause = input('pause')
 clear_screen()
+
 
 '''
 #15 - Boolean Operators
-Ask the user for two numbers and check if both are positive, either is positive, or none is positive.
+Request two numbers. Report if both are positive, if at least one is positive, or if neither is.
 '''
-# enter code here
+x = int(input("First number: "))
+y = int(input("Second number: "))
 
+if x > 0 and y > 0:
+    print("Both numbers are positive")
+elif x > 0 or y > 0:
+    print("One of them is positive")
+else:
+    print("Neither number is positive")
 
-
-pause=input('pause')
+pause = input('pause')
 clear_screen()
+
 
 '''
 #16 - For Loop
-Print all numbers from 1 to 20, skipping multiples of 3.
+Print numbers from 1 through 20, but leave out multiples of 3.
 '''
-# enter code here
+for n in range(1, 21):
+    if n % 3 == 0:
+        continue
+    print(n)
 
-
-
-pause=input('pause')
+pause = input('pause')
 clear_screen()
+'''
+1
+2
+4
+5
+7
+8
+10
+11
+13
+14
+16
+17
+19
+20
+'''
+
 
 '''
 #17 - While Loop
-Ask the user to guess a secret number (hardcoded) until they get it right.
+Keep asking the user to guess a fixed secret number until they succeed.
 '''
-# enter code here
+hidden = 7
+guess = -1
+while guess != hidden:
+    guess = int(input("Guess the secret number: "))
+print("You got it!")
 
-
-
-pause=input('pause')
+pause = input('pause')
 clear_screen()
+'''
+Guess the secret number: 10
+Guess the secret number: 8
+Guess the secret number: 7
+You got it!
+'''
+
 
 '''
 #18 - Break / Continue
-Print numbers 1-10 but stop printing when you reach 7 and skip 3.
+Show numbers from 1 to 10, but skip the number 3 and stop once 7 is reached.
 '''
-# enter code here
+for n in range(1, 11):
+    if n == 3:
+        continue
+    if n == 7:
+        break
+    print(n)
 
-
-
-pause=input('pause')
+pause = input('pause')
 clear_screen()
+'''
+1
+2
+4
+5
+6
+'''
+
 
 '''
 #19 - Function Definition
-Write a function square(x) that returns the square of a number and test it.
+Make a function square(num) that returns a squared value and try it out.
 '''
-# enter code here
+def square(num):
+    return num ** 2
 
+print("The square of 5 equals:", square(5))
 
-
-pause=input('pause')
+pause = input('pause')
 clear_screen()
+'''
+The square of 5 equals: 25
+'''
+
 
 '''
 #20 - Function with Mutable Argument
-Write a function add_item(lst, item) that appends item to lst and observe the effect on the original list.
+Write a function add_item(lst, val) that appends to the list and check how it affects the original list.
 '''
-# enter code here
+def add_item(lst, val):
+    lst.append(val)
 
+items = [1, 2, 3]
+add_item(items, 4)
+print("List after adding:", items)
 
-
-pause=input('pause')
+pause = input('pause')
 clear_screen()
+'''
+List after adding: [1, 2, 3, 4]
+'''
+
 
 '''
 #21 - Comments / Documentation
-Write a function greet(name) with single-line and multi-line comments explaining each step.
+Define a function greet(person) with single-line and multi-line comments describing each part.
 '''
-# enter code here
+def greet(person):
+    # Display a hello message
+    """
+    This function accepts a name
+    and prints a personalized greeting.
+    """
+    print(f"Hi, {person}!")
 
+greet("Melis")
 
-
-pause=input('pause')
+pause = input('pause')
 clear_screen()
+'''
+Hi, Melis!
+'''
+
 
 '''
 #22 - Combining Tools
-Ask the user to enter 5 names. Store them in a list, capitalize each name, sort the list, and print it.
+Ask the user to provide 5 names. Capitalize each one, sort them, and print the list.
 '''
-# enter code here
+people = []
+for i in range(5):
+    entry = input(f"Name {i+1}: ")
+    people.append(entry.capitalize())
 
+people.sort()
+print("Alphabetical list:", people)
 
-
-pause=input('pause')
+pause = input('pause')
 clear_screen()
-
+'''
+Name 1: Melis
+Name 2: Serra
+Name 3: Deniz
+Name 4: Ali
+Name 5: Zeynep
+Alphabetical list: ['Ali', 'Deniz', 'Melis', 'Serra', 'Zeynep']
+'''
