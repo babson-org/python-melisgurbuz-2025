@@ -37,6 +37,14 @@ def draw_diamond():
     
     print("you have some work todo!, draw_diamond")
 
+"""
+STEPS I TOOK:
+Prompted user for input → used a while True loop with try/except to make sure the input is an integer 
+→ checked if the integer was odd (height % 2 == 1), otherwise told the user to re-enter.
+→ if the user typed something that is not a number, printed a correction message.
+→ looped through odd numbers 1, 3, 5… height and printed spaces and stars centered.
+→ looped backward from height - 2 down to 1, printing spaces + stars to mirror the top.
+"""
     # TODO: Prompt user for an odd number
 
 while True:
@@ -52,13 +60,18 @@ while True:
     # TODO: Draw the top half of the diamond
 for i in range(1, height + 1, 2):
         spaces = (height - i) // 2
-        print(" " * spaces + "*" * i)
+        if i == 1:
+            print(" " * spaces + "*")
+        else:
+            print(" " * spaces + "*" + " " * (i - 2) + "*")
 
     # TODO: Draw the bottom half of the diamond
 for i in range(height - 2, 0, -2):
         spaces = (height - i) // 2
-        print(" " * spaces + "*" * i)
-
+        if i == 1:
+            print(" " * spaces + "*")
+        else:
+            print(" " * spaces + "*" + " " * (i - 2) + "*")
 # Uncomment to test Part 1
 draw_diamond()
 
@@ -73,9 +86,16 @@ def text_analysis():
         - Number of letters (only count a-zA-Z)
         - Number of words   (use split())
         - Number of sentences (., ?, !) 
-    """
 
-    print("you have some work todo!, text_analysis")
+    STEPS I TOOK:
+    - used a while True loop to make sure the user entered valid text.
+    - checked each character with .isalpha() to ensure at least one letter was included.
+    - looped through text and increased `letters` when character was alphabetic.
+    - counted words with len(text.split()).
+    - counted sentences whenever ., ?, or ! was found.
+    - displayed results with print().
+    """
+    
 
     # TODO: Get user input
 
@@ -121,7 +141,20 @@ def caesar_cipher():
     Provide options to encrypt or decrypt the text using a Caesar cipher.
     """
 
-    print("you have some work todo!, caesar_cypher")
+"""    
+STEPS I TOOK:
+Defined the function caesar_cipher() → with a docstring describing encryption and decryption using Caesar cipher.
+→ used a while True loop to ensure the input had at least one alphabetic character (.isalpha() check).
+→ used another while True with try/except to make sure the shift entered was an integer.
+→ prompted the user to choose encryption ('e') or decryption ('d'), looping until a valid response was given.
+Handled decryption → if user chose 'd', reversed the shift by making it negative.
+Implemented Caesar cipher logic:
+→If it's a letter → shifted it forward/backward within the alphabet.
+Used ord() and chr() with a base ('A' for uppercase, 'a' for lowercase) to wrap correctly with % 26.
+If it wasn't a letter → added it unchanged to the result.
+→ printed both the original text and the encrypted/decrypted version.
+"""
+print("you have some work todo!, caesar_cypher")
 
     # TODO: Get user input text
 while True:
