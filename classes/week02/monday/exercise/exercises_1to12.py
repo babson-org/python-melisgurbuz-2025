@@ -5,6 +5,16 @@ from classes.week00.second_class.utils import clear_screen
 Write down the steps a program would need to make a cup of tea. Then implement a Python 
 function make_tea() that prints each step.
 '''
+steps=['step1','step2','step3']
+def make_tea(myList):
+    myList[2] = "step5"
+    for item in myList:
+        print(item)
+    
+
+make_tea(steps)
+print(steps)
+
 # enter your code here
 
 '''Boil water
@@ -56,6 +66,11 @@ Write a program that asks the user for their first and last name, then prints a 
 "Hello, <first name> <last name>!"
 '''
 # enter your code here
+fname = input('please enter yur first name: ')
+lname = input('please enter your last name: ')
+fname = fname.capitalize()
+lname = lname.capitalize()
+print(f'Hello, {fname} {lname}')
 
 # Ask for first and last name
 first = input("Enter your first name: ")
@@ -87,6 +102,13 @@ Ask the user to input two numbers. Calculate and print their sum, difference, pr
 and division (both / and //).
 '''
 # enter your code here
+txt = 'please enter an integer: '
+while True:
+    try:
+        x = int(input(txt))
+        break
+    except ValueError:
+        txt = 'follow directions, enter a number: '
 
 a = int(input("Enter the first number: "))
 b = int(input("Enter the second number: "))
@@ -115,6 +137,11 @@ clear_screen()
 Ask the user to input a sentence. Print it in uppercase, lowercase, with the first letter 
 capitalized, and split it into words.
 '''
+txt = input('please entr some text:')
+print(txt.upper())
+print(txt.lower())
+print(txt.capitalize())
+print(txt.split())
 
 # enter your code here
 
@@ -138,6 +165,7 @@ Split into words: ['i', 'love', 'mars']
 10 + 2 * 5 / 2 - 3 ** 2
 
 # enter your code here
+print(10 + 2 * 5 / 2 - 3 ** 2)
 
 # Without parentheses
 print(10 + 2 * 5 / 2 - 3 ** 2)   # 6.0
@@ -145,6 +173,10 @@ print(10 + 2 * 5 / 2 - 3 ** 2)   # 6.0
 # With parentheses
 print(((10 + 2) * 5) / 2 - (3 ** 2))   # 21.0
 
+print(x)
+
+x = 2**3**2
+print(x)
 pause=input('pause')
 clear_screen()
 '''
