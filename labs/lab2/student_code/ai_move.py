@@ -10,6 +10,18 @@ def ai_move(board: list[int]):
         so in this case your function should return 2
     """
     # TODO: Loop through board
+
     # TODO: Find the first index where abs(cell) != 10
+
+
     # TODO: Return that index as the AI's move
-    pass
+def ai_move(board: list[int]) -> int:
+    """
+    Simple AI: select the first available cell.
+    Returns the 0-based index to play.
+    """
+    for i in range(len(board)):
+        cell = board[i]
+        if abs(cell) != 10:          # open if not X(10) or O(-10)
+            return i                 # first open index
+    raise ValueError("No available moves.")

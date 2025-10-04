@@ -12,6 +12,18 @@ def game_over(board: list[int]):
     # TODO: Use calc_score to check if someone has won
     # TODO: Return True if game over, otherwise False
     pass
+from calc_score import calc_score
+
+def game_over(board: list[int]) -> bool:
+    """
+    Game ends if someone wins (±30) or there are no open cells left.
+    """
+    if calc_score(board) != 0:
+        return True
+
+    all_filled = all(abs(cell) == 10 for cell in board)
+
+    return all_filled
 
     
 

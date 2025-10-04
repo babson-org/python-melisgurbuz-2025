@@ -62,3 +62,36 @@ def print_board(board: list[int]):
     #                7 | 8 | X 
     #                  |   |   
     pass
+from utils import clear_screen
+
+def print_board(board: list[int]) -> None:
+    """
+    Display the Tic-Tac-Toe board with human-friendly layout.
+    10 -> X,  -10 -> O,  1..9 -> show the number.
+    """
+    def cell(value: int) -> str:
+        # TODOs completed:
+        if value == 10:
+            return 'X'
+        elif value == -10:
+            return 'O'
+        else:
+            return str(value)
+
+    clear_screen()
+    print()
+
+    # TODOs completed: loop rows and print formatted layout
+    for r in range(3):
+        # build the printable values for this row
+        row_values = [cell(board[r*3 + c]) for c in range(3)]
+
+        print('   |   |   ')
+        print(f' {row_values[0]} | {row_values[1]} | {row_values[2]} ')
+        print('   |   |   ')
+        if r < 2:
+            print('-----------')
+    print()
+# print_board([10, 2, 3, 4, -10, 6, 7, 8, 10]) # try
+
+
