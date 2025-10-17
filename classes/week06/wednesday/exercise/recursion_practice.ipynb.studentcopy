@@ -2,7 +2,7 @@
  "cells": [
   {
    "cell_type": "markdown",
-   "id": "eff0fbfb",
+   "id": "0",
    "metadata": {},
    "source": [
     "# 🧩 Recursion Practice Problems\n",
@@ -12,7 +12,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "80791047",
+   "id": "1",
    "metadata": {},
    "source": [
     "## 1️⃣ Reverse a String\n",
@@ -21,25 +21,34 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 3,
    "id": "2",
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Reversed: sileM\n"
+     ]
+    }
+   ],
    "source": [
-    "# TODO: Implement reverse(s)\n"
+    "# TODO: Implement reverse(s)\n",
+    "\n",
+    "\n",
+    "def reverse(s: str) -> str:\n",
+    "    if len(s) <= 1:                 # BASE CASE\n",
+    "        return s\n",
+    "    return reverse(s[1:]) + s[0]    # RECURSIVE CASE\n",
+    "\n",
+    "text = \"Melis\"\n",
+    "print(\"Reversed:\", reverse(text))\n"
    ]
   },
   {
-   "cell_type": "code",
-   "execution_count": null,
-   "id": "839523d5",
-   "metadata": {},
-   "outputs": [],
-   "source": []
-  },
-  {
    "cell_type": "markdown",
-   "id": "b438b95c",
+   "id": "3",
    "metadata": {},
    "source": [
     "## 2️⃣ Palindrome Check\n",
@@ -48,17 +57,36 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 4,
    "id": "4",
    "metadata": {},
-   "outputs": [],
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "True\n",
+      "False\n"
+     ]
+    }
+   ],
    "source": [
-    "# TODO: Implement is_palindrome(s)\n"
+    "# TODO: Implement is_palindrome(s)\n",
+    "def is_palindrome(s: str) -> bool:\n",
+    "    if len(s) <= 1:                  # BASE CASE\n",
+    "        return True\n",
+    "    if s[0] != s[-1]:\n",
+    "        return False\n",
+    "    return is_palindrome(s[1:-1])    # RECURSIVE CASE\n",
+    "\n",
+    "# demo\n",
+    "print(is_palindrome(\"racecar\"))   # True\n",
+    "print(is_palindrome(\"hello\"))     # False\n"
    ]
   },
   {
    "cell_type": "markdown",
-   "id": "096f6e39",
+   "id": "5",
    "metadata": {},
    "source": [
     "## 3️⃣ Count Occurrences\n",
@@ -77,7 +105,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "c3eac5bf",
+   "id": "7",
    "metadata": {},
    "source": [
     "## 4️⃣ Sum of Digits\n",
@@ -96,7 +124,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "6558c87b",
+   "id": "9",
    "metadata": {},
    "source": [
     "## 5️⃣ Power Function\n",
@@ -115,11 +143,12 @@
   },
   {
    "cell_type": "markdown",
-   "id": "ae684e33",
+   "id": "11",
    "metadata": {},
    "source": [
     "## 6️⃣ Find Maximum in a List\n",
-    "Write a recursive function `find_max(lst)` that returns the largest element in the list.\n"
+    "Write a recursive function `find_max(lst)` that returns the largest element in the list.\n",
+    "You may use an index parameter to avoid slicing."
    ]
   },
   {
@@ -134,7 +163,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "24c21f1a",
+   "id": "13",
    "metadata": {},
    "source": [
     "## 7️⃣ Product of Elements in a List\n",
@@ -154,7 +183,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "10ff5354",
+   "id": "15",
    "metadata": {},
    "source": [
     "## 8️⃣ Flatten a Nested List\n",
@@ -174,7 +203,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "081abef6",
+   "id": "17",
    "metadata": {},
    "source": [
     "## 9️⃣ Print Numbers in Binary\n",
@@ -193,7 +222,7 @@
   },
   {
    "cell_type": "markdown",
-   "id": "8d6a5c90",
+   "id": "19",
    "metadata": {},
    "source": [
     "## 10. Draw a Triangle of Stars\n",
@@ -212,7 +241,7 @@
   {
    "cell_type": "code",
    "execution_count": null,
-   "id": "a6d8a3f5",
+   "id": "20",
    "metadata": {},
    "outputs": [],
    "source": [
