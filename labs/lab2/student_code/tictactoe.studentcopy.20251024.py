@@ -12,7 +12,6 @@ sys.path.insert(1, str(default_code))
 
 # Import and run
 
-
 from play_game import play_game
 play_game()
 
