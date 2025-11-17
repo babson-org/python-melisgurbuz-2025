@@ -1,30 +1,27 @@
-
 import os, sys, random
 
-# --- make 'YOUR_CODE' importable even when loaded from __pycache__ ---
-_here = os.path.dirname(__file__)                          # GAME/ or GAME/__pycache__/
-game_dir = _here if os.path.basename(_here) != "__pycache__" else os.path.dirname(_here)
-lab_dir = os.path.dirname(game_dir)                        # .../lab3
+here = os.path.dirname(__file__)
+game_dir = here if os.path.basename(here) != "__pycache_" else os.path.dirname(here)
+lab_dir = os.path.dirname(game_dir)                        
 if lab_dir not in sys.path:
     sys.path.insert(0, lab_dir)
 
-import globals  # provided by professor
+import globals  
 from YOUR_CODE.initialize_board import initialize_board
-from YOUR_CODE.place_random_mines import place_random_mines
 from YOUR_CODE.count_adjacent_mines import count_adjacent_mines
 from YOUR_CODE.update_board import update_board
 from YOUR_CODE.game_won import game_won
+from YOUR_CODE.print_board import print_board
 
-# symbols from prof's globals with safe fallbacks
 try:
     MINE = globals.MINE
 except AttributeError:
     MINE = globals.MINES
-HIDDEN = getattr(globals, "HIDDEN", "♦")
+HIDDEN = getattr(globals, "HIDDEN", "♦️")
 BOOM   = getattr(globals, "BOOM", "*")
 FLAG   = getattr(globals, "FLAG", "⚑")  
 
-def print_display(board, flagged: set[tuple[int,int]]):
+def print_board(board, flagged: set[tuple[int,int]]):
     rows, cols = len(board), len(board[0])
     print("\n    " + " ".join(f"{c:>2}" for c in range(cols)))
     print("   +" + "---" * cols + "+")
@@ -37,7 +34,6 @@ def print_display(board, flagged: set[tuple[int,int]]):
     print("   +" + "---" * cols + "+\n")
 
 def print_base(b):
-    # debug helper to see the hidden board
     print("\n# DEBUG base (mines=*)")
     for row in b:
         print(" ".join("*" if x == MINE else str(x) for x in row))
@@ -57,16 +53,19 @@ def parse_coords(text: str):
 def main():
     rows, cols, mines = 6, 8, 8
 
-    random.seed()  # set to a fixed int for reproducible boards
+    random.seed()  
     base = initialize_board(rows, cols, 0)
     place_random_mines(base, mines)
     count_adjacent_mines(base)
     display = [[HIDDEN for _ in range(cols)] for _ in range(rows)]
-    flagged: set[tuple[int,int]] = set()  # keep flags separate so game_won logic stays unchanged
+    flagged: set[tuple[int,int]] = set() 
 
     while True:
-        print_display(display, flagged)
-        raw = input("Pick a cell to reveal. Type the 'row column as 'r c'. (To understand the game you can 'debug' to see the base board or 'quit' to end the game): ").strip().lower()
+        print_board(display, flagged)
+        raw = input(
+    "Your move → type row col (e.g., 2 3). "
+    "Type 'debug' to peek or 'quit' to exit: "
+).strip().lower()
 
         if raw in {"quit"}:
             print("bye!")
@@ -91,7 +90,7 @@ def main():
                 flagged.add((r, c))
             continue
 
-        # regular reveal
+            
         coords = parse_coords(raw)
         if coords is None:
             print("Enter two integers like: 2 3"); continue
@@ -110,13 +109,13 @@ def main():
                 for cc in range(cols):
                     if base[rr][cc] == MINE:
                         display[rr][cc] = BOOM
-            print_display(display, flagged)
+            print_board(display, flagged)
             print("💥 Boom!")
             break
         if game_won(base, display):
-            print_display(display, flagged)
+            print_board(display, flagged)
             print("🎉 You win!")
             break
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     main()
