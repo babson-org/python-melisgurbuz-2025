@@ -1,0 +1,3 @@
+ROWS = 5
+COLS = 5
+MINES = 2
