@@ -24,10 +24,6 @@ def portfolio_buy_stock(self, sym: str, shares: float, price: float):
     - Be sure to decrease the client cash attribute
     NOTE: UI prompts are handled in main.py: this method only prints for invalid ticker and insufficient funds. The rest are handled in main.py
     """
-    
-    
-    
-    return
+    sym = sym.upper()
 
-
-
+    # 

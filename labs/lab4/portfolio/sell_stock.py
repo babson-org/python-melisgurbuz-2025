@@ -18,8 +18,6 @@ def portfolio_sell_stock(self, sym: str, shares: float, price: float):
     - Increase self.cash by proceeds
     - Hint: the amount you reduce cost is NOT the same as the amount you increase cash
     """
-    
-    
+    sym = sym.upper()
 
-    return
-       
+    pos
