@@ -10,4 +10,9 @@ class Stock:
        
 
     def __str__(self):
-        """TODO: include symbol, shares, a
+        """TODO: include symbol, shares, and cost (format flexible)."""
+        
+        return f"{self.sym}: {self.shares} shares, cost {self.cost}"
+
+        
+        

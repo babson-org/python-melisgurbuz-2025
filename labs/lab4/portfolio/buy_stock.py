@@ -26,4 +26,31 @@ def portfolio_buy_stock(self, sym: str, shares: float, price: float):
     """
     sym = sym.upper()
 
-    # 
+    # validate ticker symbol is in the DOW30 universe
+    if sym not in _prices.DOW30:
+        print("Invalid ticker symbol.")
+        return
+
+    if shares <= 0:
+        return
+
+    total_cost = shares * price
+
+    if total_cost > self.cash:
+        print("Insufficient funds.")
+        return
+    self.cash -= total_cost
+
+    pos = _find_position(self, sym)
+
+    if pos is None:
+        pos = {
+            "sym": sym,
+            "name": sym,
+            "shares": shares,
+            "cost": total_cost,
+        }
+        self.positions.append(pos)
+    else:
+        pos["shares"] += shares
+        pos["cost"] += total_cost
