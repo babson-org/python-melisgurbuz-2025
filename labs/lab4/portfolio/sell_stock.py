@@ -20,34 +20,4 @@ def portfolio_sell_stock(self, sym: str, shares: float, price: float):
     """
     sym = sym.upper()
 
-    pos = _find_position(self, sym)
-    if pos is None:
-        print("Symbol not in portfolio.")
-        return
-
-    if shares <= 0:
-        return
-
-    owned = pos.get("shares", 0)
-    if shares > owned:
-        print("Not enough shares to sell.")
-        return
-
-    proceeds = shares * price
-    self.cash += proceeds
-
-    total_shares = owned
-    total_cost = pos.get("cost", 0.0)
-
-    fraction = shares / total_shares
-    cost_reduction = total_cost * fraction
-
-    pos["shares"] = total_shares - shares
-    pos["cost"] = total_cost - cost_reduction
-
-    if pos["shares"] == 0:
-        self.positions.remove(pos)
-
-
-    return
-       
+    pos

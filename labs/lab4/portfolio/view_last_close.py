@@ -13,10 +13,3 @@ def portfolio_view_last_close(self):
     
     """
     
-    symbols = [p.get("sym") for p in self.positions]
-
-    if not symbols:
-        return {}
-
-    px_map = _prices.get_last_close_map(symbols)
-    return px_map
